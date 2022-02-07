@@ -8,7 +8,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 
 RESUME_PATTERN = r"^.*resume template.*\?.*|.*resume example.*\?.*|.*образец resume.*\?.*|.*образец резюме.*\?.*$"
 JAVA_PYTHON_PATTERN = r"^.*java or python.*\?.*|.*java или python.*\?.*|.*джав. или питон.*\?.*|.*джав. или пайтон.*\?.*$"
-PORTNOV_TESTPRO_PATTERN = r"^.*portnov или.* testpro.*\?.*|.*портнов. или.* testpro.*\?.*|.*портнов. или.* тестпро.*\?.*$"
+PORTNOV_TESTPRO_PATTERN = r"^.*portnov или.* testpro.*\?.*|.*портнов.* или.* testpro.*\?.*|.*портнов.* или.* тестпро.*\?.*$"
 GIF = "https://tenor.com/view/jew-money-invest-gif-24178583"
 
 with open("token.txt", "r", encoding="utf8") as f:
