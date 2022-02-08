@@ -12,13 +12,16 @@ JAVA_PYTHON_PATTERN = r"^.*java or python.*\?.*|.*java или python.*\?.*|.*д�
 PORTNOV_TESTPRO_PATTERN = r"^.*portnov или.* testpro.*\?.*|.*портнов.* или.* testpro.*\?.*|.*портнов.* или.* тестпро.*\?.*$"
 GIF = "https://tenor.com/view/jew-money-invest-gif-24178583"
 
+PORT = int(os.environ.get('PORT', 8443))
+TOKEN = os.environ['WELCOME_BOT_TOKEN']
+
+# with open("token.txt", "r", encoding="utf8") as f:
+#     TOKEN = f.read()
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-
-with open("token.txt", "r", encoding="utf8") as f:
-    TOKEN = f.read()
 
 
 def new_member(update, context):
@@ -91,7 +94,10 @@ def main():
                        portnov_testpro))
     disp.add_error_handler(error)
 
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=PORT,
+                          url_path=TOKEN,
+                          webhook_url="https://menteebot.herokuapp.com/" + TOKEN)
     updater.idle()
 
 
